@@ -12,7 +12,10 @@
 
     <mvc:annotation-driven>
         <!--配置将java对象转换为json对象互转的工具类-->
+        <!--配置将java对象转换成为json对象相互转换的工具类替代视图转换器-->
+
         <mvc:message-converters register-defaults="true">
+
             <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
                 <property name="supportedMediaTypes"
                           value="application/json"/>
@@ -25,6 +28,7 @@
     <!--在注册中心的名称-->
     <dubbo:application name="pinyougou-manage-web"/>
     <!--注册中心信息-->
+
     <dubbo:registry address="zookeeper://192.168.12.168:2181"/>
     <!--扫描阿里dubbo的注解的包路径-->
     <dubbo:annotation package="com.pinyougou.manage.controller"/>
